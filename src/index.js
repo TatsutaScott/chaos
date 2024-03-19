@@ -1,10 +1,23 @@
 import p5 from "p5";
-import { createDevice } from "@rnbo/js";
+import { createDevice, TimeNow, MessageEvent } from "@rnbo/js";
 import patcher from "./export/patch.export.json";
 import { Bubble, AnimationQueue } from "./animation";
-import { pointer, points, distances, controls } from "./ui_elements";
+import {
+  pointer,
+  point_plot,
+  amp_plot,
+  dist_plot,
+  numbers,
+  controls,
+} from "./ui_elements";
 
-let q, context, outputNode, device, pointsArray, distancesArray;
+let q,
+  context,
+  outputNode,
+  device,
+  point_arr,
+  dist_arr,
+  ampArray = [];
 
 new p5((p) => {
   p.preload = async () => {
@@ -20,10 +33,16 @@ new p5((p) => {
 
     device.messageEvent.subscribe((ev) => {
       if (ev.tag == "out3") {
-        pointsArray = ev.payload;
+        point_arr = ev.payload;
       }
       if (ev.tag == "out4") {
-        distancesArray = ev.payload;
+        dist_arr = ev.payload;
+      }
+      if (ev.tag == "out5") {
+        ampArray.push(ev.payload[0]);
+        if (ampArray.length > 50) {
+          ampArray.shift();
+        }
       }
     });
   };
@@ -39,17 +58,34 @@ new p5((p) => {
 
     q.animate(p);
     q.clean();
-
+    controls(p, 20, p.height - 90);
     try {
       setParam("x", p.mouseX / p.width);
       setParam("y", p.mouseY / p.height);
-      points(p, pointsArray);
-      distances(p, distancesArray);
+      sendMessage("get_amp", "bang");
+
+      point_plot(p, point_arr, 20, 20, p.height - 140, p.height - 140);
+      amp_plot(p, ampArray, 250, p.height - 80, p.height - 370, 70);
+      numbers(
+        p,
+        point_arr,
+        dist_arr,
+        p.height - 100,
+        20,
+        p.width - (p.height - 120) - 20
+      );
+      dist_plot(
+        p,
+        dist_arr,
+        p.height - 100,
+        (dist_arr.length / 4) * 15 + 40,
+        p.width - (p.height - 80),
+        100
+      );
     } catch (err) {
       console.log(err);
     }
 
-    controls(p);
     pointer(p);
   };
 
@@ -64,4 +100,9 @@ new p5((p) => {
 function setParam(param, value) {
   const p = device.parametersById.get(param);
   p.value = value;
+}
+
+function sendMessage(tag, message) {
+  const event1 = new MessageEvent(TimeNow, tag, [message]);
+  device.scheduleEvent(event1);
 }
