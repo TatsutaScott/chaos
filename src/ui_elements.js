@@ -32,17 +32,17 @@ export function cursor(settings) {
  * @param {Number} pad - inner padding
  */
 export function point_plot(settings, points, x, y, w, h, pad = 20) {
-  const { p5, dark } = settings;
+  const { p5, dark, dev } = settings;
   p5.push();
   p5.stroke(dark);
   p5.noFill();
 
   //For positioning test purpose
-  p5.rect(x, y, w, h);
+  if (dev) p5.rect(x, y, w, h);
 
   //Title
   p5.translate(x + pad, y + pad);
-  p5.text("points___", 0, 0);
+  p5.text("plot___", 0, 0);
 
   //Plot structure
   p5.translate(0, 10);
@@ -76,14 +76,14 @@ export function point_plot(settings, points, x, y, w, h, pad = 20) {
  * @param {Number} pad - inner padding
  */
 export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
-  const { p5, dark } = settings;
+  const { p5, dark, dev } = settings;
 
   p5.push();
   p5.noFill();
   p5.stroke(dark);
 
   //For positioning test purpose
-  p5.rect(x, y, w, h);
+  if (dev) p5.rect(x, y, w, h);
 
   //label
   p5.translate(x + pad, y + pad);
@@ -92,7 +92,7 @@ export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
   //amp plot
   const plot_w = w - 2 * pad;
   const plot_h = h - 2 * pad - 10;
-  p5.rect(0, 10, plot_w, plot_h);
+  p5.rect(0, 10, plot_w, plot_h, 4);
 
   p5.beginShape();
   for (let i = 0; i < amps.length; i++) {
@@ -100,6 +100,47 @@ export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
     p5.vertex(pos_x, p5.map(amps[i], -1, 1, 10, 10 + plot_h));
   }
   p5.endShape();
+
+  p5.pop();
+}
+
+/**Writes out all of the points, their coordinates, and the cursors distance to the point
+ * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
+ * @param {[Number]} points - array containing points
+ * @param {[Number]} dists - array containing distances
+ * @param {Number} x - x value of topleft corner
+ * @param {Number} y - y value of topleft corner
+ * @param {Number} w - width
+ * @param {Number} h - height
+ * @param {Number} pad - inner padding
+ */
+export function numbers(settings, points, dists, cols, x, y, w, h, pad = 20) {
+  const { p5, dark, dev } = settings;
+  p5.push();
+  p5.stroke(dark);
+  p5.noFill();
+
+  //For positioning test purpose
+  if (dev) p5.rect(x, y, w, h);
+
+  //title
+  p5.translate(x + pad, y + pad);
+  p5.text("points___     #: [x, y] distance", 0, 0);
+
+  //numbers
+  p5.translate(0, 20);
+  const step_x = (w - pad * 2) / cols;
+  const step_y = (h - pad * 2 - 20) / (dists.length / cols);
+
+  for (let i = 0; i < dists.length; i++) {
+    const r = i % (dists.length / cols); //row
+    const c = Math.floor((i * cols) / dists.length); //column
+
+    const coord_x = points[i * 2].toFixed(4);
+    const coord_y = points[i * 2 + 1].toFixed(4);
+    const string = `${i}: [${coord_x}, ${coord_y}] ${dists[i].toFixed(4)}`;
+    p5.text(string, c * step_x, r * step_y);
+  }
 
   p5.pop();
 }
@@ -125,25 +166,6 @@ export function dist_plot(settings, dists, x, y, w, h, pad = 20) {
   const step_size = w / dists.length;
   for (let i = 0; i < dists.length; i++) {
     p5.rect(step_size * i, 0, step_size, dists[i] * h);
-  }
-
-  p5.pop();
-}
-
-export function numbers(p5, points, dists, x, y, w, h) {
-  p5.push();
-
-  p5.translate(x, y);
-  p5.fill(150);
-  p5.stroke(150);
-
-  for (let i = 0; i < dists.length; i++) {
-    const pos_x = Math.floor((i * 4) / dists.length) * (w / 4);
-    const pos_y = (i % (dists.length / 4)) * 15;
-    const string = `${i}: [${points[i * 2].toFixed(6)}, ${points[
-      i * 2 + 1
-    ].toFixed(6)}] ${dists[i].toFixed(6)}`;
-    p5.text(string, pos_x, pos_y + 20);
   }
 
   p5.pop();
