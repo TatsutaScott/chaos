@@ -66,24 +66,43 @@ export function point_plot(settings, points, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
-// export function amp_plot(settings, amps, x, y, w, h, pad) {
-//   p5.push();
-//   p5.translate(x, y);
-//   p5.fill(150);
-//   p5.stroke(150);
+/**Draws a running graph of the amplitude of the output
+ * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
+ * @param {[Number]} amps - array containing amplitudes
+ * @param {Number} x - x value of topleft corner
+ * @param {Number} y - y value of topleft corner
+ * @param {Number} w - width
+ * @param {Number} h - height
+ * @param {Number} pad - inner padding
+ */
+export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
+  const { p5, dark } = settings;
 
-//   p5.text("amplitude___", 0, 0);
+  p5.push();
+  p5.noFill();
+  p5.stroke(dark);
 
-//   p5.noFill();
-//   p5.beginShape();
-//   for (let i = 0; i <= arr.length; i++) {
-//     const pos_x = (i / arr.length) * w;
-//     p5.vertex(pos_x, p5.map(arr[i], -1, 1, 0, h));
-//   }
-//   p5.endShape();
+  //For positioning test purpose
+  p5.rect(x, y, w, h);
 
-//   p5.pop();
-// }
+  //label
+  p5.translate(x + pad, y + pad);
+  p5.text("amplitude___", 0, 0);
+
+  //amp plot
+  const plot_w = w - 2 * pad;
+  const plot_h = h - 2 * pad - 10;
+  p5.rect(0, 10, plot_w, plot_h);
+
+  p5.beginShape();
+  for (let i = 0; i < amps.length; i++) {
+    const pos_x = (i / (amps.length - 1)) * plot_w;
+    p5.vertex(pos_x, p5.map(amps[i], -1, 1, 10, 10 + plot_h));
+  }
+  p5.endShape();
+
+  p5.pop();
+}
 
 /**
  *

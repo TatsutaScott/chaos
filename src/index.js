@@ -116,8 +116,8 @@ function ui(p5, dark, light, points, dists, amps) {
   const w = p5.width;
   const settings = { p5, dark, light };
 
-  point_plot(settings, points, 0, 0, h * 0.75, h * 0.75, 20);
-  // amp_plot(settings, amps, 0, h * 0.75, h * 0.75, h * 0.25);
+  point_plot(settings, points, 0, 0, h * 0.8, h * 0.8, 20);
+  amp_plot(settings, amps, 0, h * 0.8, h * 0.8, h * 0.2, 20);
 
   cursor(settings);
 }
