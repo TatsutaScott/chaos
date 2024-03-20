@@ -8,7 +8,7 @@ import {
   amp_plot,
   dist_plot,
   details,
-  controls,
+  info,
 } from "./ui_elements";
 
 let queue,
@@ -106,5 +106,7 @@ function ui(p5, dark, light, points, dists, amps, dev) {
   //right hand column
   details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
   dist_plot(settings, dists, left_w, h / 2, w - left_w, h / 4, 20);
+  info(settings, left_w, h * 0.75, w - left_w, h / 4, 20);
+
   cursor(settings);
 }

@@ -183,10 +183,23 @@ export function dist_plot(settings, dists, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
-export function controls(p5, x, y) {
+export function info(settings, x, y, w, h, pad = 20) {
+  const { p5, dark, light, dev } = settings;
   p5.push();
+  p5.noFill();
+  p5.stroke(dark);
 
-  p5.translate(x, y);
+  //For positioning test purpose
+  if (dev) p5.rect(x, y, w, h);
+
+  p5.translate(x + pad, y + pad);
+  p5.text(
+    "'On Data and Knowing' developer: Scott Tatsuta  date: 2024",
+    0,
+    h - pad * 2
+  );
+
+  // p5.translate(x, y);
   p5.fill(150);
   p5.stroke(150);
 
