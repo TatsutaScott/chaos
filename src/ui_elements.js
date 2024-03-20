@@ -114,7 +114,7 @@ export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
  * @param {Number} h - height
  * @param {Number} pad - inner padding
  */
-export function numbers(settings, points, dists, cols, x, y, w, h, pad = 20) {
+export function details(settings, points, dists, cols, x, y, w, h, pad = 20) {
   const { p5, dark, dev } = settings;
   p5.push();
   p5.stroke(dark);
@@ -130,10 +130,10 @@ export function numbers(settings, points, dists, cols, x, y, w, h, pad = 20) {
   //numbers
   p5.translate(0, 20);
   const step_x = (w - pad * 2) / cols;
-  const step_y = (h - pad * 2 - 20) / (dists.length / cols);
+  const step_y = (h - pad * 2 - 10) / (dists.length / cols);
 
   for (let i = 0; i < dists.length; i++) {
-    const r = i % (dists.length / cols); //row
+    const r = i % Math.ceil(dists.length / cols); //row
     const c = Math.floor((i * cols) / dists.length); //column
 
     const coord_x = points[i * 2].toFixed(4);

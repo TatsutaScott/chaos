@@ -7,7 +7,7 @@ import {
   point_plot,
   amp_plot,
   dist_plot,
-  numbers,
+  details,
   controls,
 } from "./ui_elements";
 
@@ -64,31 +64,13 @@ new p5((p) => {
   p.draw = () => {
     p.background(200);
     queue.update(p);
-    // controls(p, 20, p.height - 90);
 
     try {
       setParam("x", p.mouseX / p.width);
       setParam("y", p.mouseY / p.height);
       sendMessage("get_amp", "bang");
 
-      ui(p, 150, 200, point_arr, dist_arr, amp_arr, true);
-
-      // numbers(
-      //   p,
-      //   point_arr,
-      //   dist_arr,
-      //   p.height - 100,
-      //   20,
-      //   p.width - (p.height - 120) - 20
-      // );
-      // dist_plot(
-      //   p,
-      //   dist_arr,
-      //   p.height - 100,
-      //   (dist_arr.length / 4) * 15 + 40,
-      //   p.width - (p.height - 80),
-      //   100
-      // );
+      ui(p, 150, 220, point_arr, dist_arr, amp_arr, true);
     } catch (err) {
       console.log(err);
     }
@@ -122,7 +104,7 @@ function ui(p5, dark, light, points, dists, amps, dev) {
   amp_plot(settings, amps, 0, left_w, left_w, h - left_w, 20);
 
   //right hand column
-  numbers(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
+  details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
 
   cursor(settings);
 }
