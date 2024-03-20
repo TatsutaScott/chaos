@@ -70,7 +70,7 @@ new p5((p) => {
       setParam("y", p.mouseY / p.height);
       sendMessage("get_amp", "bang");
 
-      ui(p, 150, 220, point_arr, dist_arr, amp_arr, true);
+      ui(p, 150, 200, point_arr, dist_arr, amp_arr, true);
     } catch (err) {
       console.log(err);
     }
@@ -105,6 +105,6 @@ function ui(p5, dark, light, points, dists, amps, dev) {
 
   //right hand column
   details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
-
+  dist_plot(settings, dists, left_w, h / 2, w - left_w, h / 4, 20);
   cursor(settings);
 }

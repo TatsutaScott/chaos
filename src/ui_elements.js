@@ -145,8 +145,7 @@ export function details(settings, points, dists, cols, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
-/**
- *
+/**PLots a bar graph of the distances
  * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
  * @param {[Number]} dists - array containing distances from point to cursor
  * @param {Number} x - x value of topleft corner
@@ -156,16 +155,29 @@ export function details(settings, points, dists, cols, x, y, w, h, pad = 20) {
  * @param {Number} pad - inner padding
  */
 export function dist_plot(settings, dists, x, y, w, h, pad = 20) {
-  const { p5, dark } = settings;
+  const { p5, dark, light, dev } = settings;
   p5.push();
-
-  p5.translate(x + pad, y + pad);
   p5.noFill();
   p5.stroke(dark);
 
-  const step_size = w / dists.length;
+  //For positioning test purpose
+  if (dev) p5.rect(x, y, w, h);
+
+  //title
+  p5.translate(x + pad, y + pad);
+  p5.text("distances___", 0, 0);
+
+  //plot
+  p5.translate(0, 10);
+  const plot_w = w - pad * 2;
+  const plot_h = h - pad * 2 - 10;
+  if (dev) p5.rect(0, 0, plot_w, plot_h);
+
+  p5.fill(dark);
+  p5.stroke(light);
+  const step_size = plot_w / dists.length;
   for (let i = 0; i < dists.length; i++) {
-    p5.rect(step_size * i, 0, step_size, dists[i] * h);
+    p5.rect(step_size * i, 0, step_size, dists[i] * plot_h);
   }
 
   p5.pop();
