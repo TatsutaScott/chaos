@@ -1,6 +1,6 @@
 import p5 from "p5";
 import { createDevice, TimeNow, MessageEvent } from "@rnbo/js";
-import patcher from "./export/patch.export.json";
+import patcher from "./export/chaos.export.json";
 import { Bubble, AnimationQueue } from "./animation";
 import {
   cursor,
@@ -17,6 +17,7 @@ let queue,
   device,
   point_arr,
   dist_arr,
+  master = 1,
   amp_arr = [];
 
 new p5((p) => {
@@ -69,8 +70,7 @@ new p5((p) => {
       setParam("x", p.mouseX / p.width);
       setParam("y", p.mouseY / p.height);
       sendMessage("get_amp", "bang");
-
-      ui(p, 150, 200, point_arr, dist_arr, amp_arr, true);
+      ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
     } catch (err) {
       console.log(err);
     }
@@ -80,6 +80,19 @@ new p5((p) => {
     queue.add(new Bubble(p.mouseX, p.mouseY));
     setParam("click", 1);
     setParam("click", 0);
+  };
+
+  p.keyPressed = (v) => {
+    //mute / unmute on space bar
+    if (v.keyCode === 32) {
+      if (master == 0) {
+        master = 1;
+        setParam("master", 1);
+      } else {
+        master = 0;
+        setParam("master", 0);
+      }
+    }
   };
 });
 

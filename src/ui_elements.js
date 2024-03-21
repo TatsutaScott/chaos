@@ -145,7 +145,7 @@ export function details(settings, points, dists, cols, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
-/**PLots a bar graph of the distances
+/**Plots a bar graph of the distances
  * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
  * @param {[Number]} dists - array containing distances from point to cursor
  * @param {Number} x - x value of topleft corner
@@ -183,6 +183,14 @@ export function dist_plot(settings, dists, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
+/**Adds controls and piece information
+ * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
+ * @param {Number} x - x value of topleft corner
+ * @param {Number} y - y value of topleft corner
+ * @param {Number} w - width
+ * @param {Number} h - height
+ * @param {Number} pad - inner padding
+ */
 export function info(settings, x, y, w, h, pad = 20) {
   const { p5, dark, light, dev } = settings;
   p5.push();
@@ -193,25 +201,18 @@ export function info(settings, x, y, w, h, pad = 20) {
   if (dev) p5.rect(x, y, w, h);
 
   p5.translate(x + pad, y + pad);
-  p5.text(
-    "'On Data and Knowing' developer: Scott Tatsuta  date: 2024",
-    0,
-    h - pad * 2
-  );
-
-  // p5.translate(x, y);
-  p5.fill(150);
-  p5.stroke(150);
-
-  p5.rect(0, 0, 210, 70, 2);
-
-  p5.fill(200);
-  p5.stroke(200);
 
   p5.text("controls___", 10, 15);
   p5.text("scramble + new impulse: [click]", 10, 30);
-  p5.text("mute: [m]", 10, 45);
+  p5.text("mute / unmute: [space]", 10, 45);
   p5.text("reset: [r]", 10, 60);
+
+  p5.textAlign(p5.RIGHT);
+  p5.text(
+    "'On Data and Knowing' developer: Scott Tatsuta  date: 2024",
+    w - pad * 2,
+    h - pad * 2
+  );
 
   p5.pop();
 }
