@@ -9,6 +9,7 @@ import {
   dist_plot,
   details,
   info,
+  extra_info,
 } from "./ui_elements";
 
 let queue,
@@ -92,6 +93,8 @@ new p5((p) => {
         master = 0;
         setParam("master", 0);
       }
+    } else if (v.keyCode === 82) {
+      console.log(context);
     }
   };
 });
@@ -119,7 +122,26 @@ function ui(p5, dark, light, points, dists, amps, dev) {
   //right hand column
   details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
   dist_plot(settings, dists, left_w, h / 2, w - left_w, h / 4, 20);
-  info(settings, left_w, h * 0.75, w - left_w, h / 4, 20);
+  extra_info(
+    settings,
+    points,
+    dists,
+    amps,
+    left_w,
+    h * 0.75,
+    (w - left_w) / 2,
+    h / 4,
+    20
+  );
+
+  info(
+    settings,
+    left_w + (w - left_w) / 2,
+    h * 0.75,
+    (w - left_w) / 2,
+    h / 4,
+    20
+  );
 
   cursor(settings);
 }

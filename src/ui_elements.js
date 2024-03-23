@@ -202,17 +202,96 @@ export function info(settings, x, y, w, h, pad = 20) {
 
   p5.translate(x + pad, y + pad);
 
-  p5.text("controls___", 10, 15);
-  p5.text("scramble + new impulse: [click]", 10, 30);
-  p5.text("mute / unmute: [space]", 10, 45);
-  p5.text("reset: [r]", 10, 60);
-
   p5.textAlign(p5.RIGHT);
+  p5.text("controls___", w - pad * 2, 0);
+  p5.text("scramble + new impulse: [click]", w - pad * 2, 15);
+  p5.text("mute / unmute: [space]", w - pad * 2, 30);
+  p5.text("reset: [r]", w - pad * 2, 45);
+
   p5.text(
     "'On Data and Knowing' developer: Scott Tatsuta  date: 2024",
     w - pad * 2,
     h - pad * 2
   );
 
+  p5.pop();
+}
+
+/**
+ * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
+ * @param {[Number]} points - array containing points
+ * @param {[Number]} dists - array containing distances from point to cursor
+ * @param {[Number]} amps - array containing amplitudes
+ * @param {Number} x - x value of topleft corner
+ * @param {Number} y - y value of topleft corner
+ * @param {Number} w - width
+ * @param {Number} h - height
+ * @param {Number} pad - inner padding
+ */
+export function extra_info(
+  settings,
+  points,
+  dists,
+  amps,
+  x,
+  y,
+  w,
+  h,
+  pad = 20
+) {
+  const { p5, dark, light, dev } = settings;
+
+  const sorted_dists = [...dists];
+  sorted_dists.sort((a, b) => a - b);
+
+  const middleIndex = dists.findIndex(
+    (d) => d == sorted_dists[Math.floor(sorted_dists.length / 2)]
+  );
+  const lowIndex = dists.findIndex((d) => d == sorted_dists[0]);
+  const highIndex = dists.findIndex(
+    (d) => d == sorted_dists[sorted_dists.length - 1]
+  );
+
+  const low_string = `closest point: #${lowIndex} (${points[
+    lowIndex * 2
+  ].toFixed(4)},${points[lowIndex * 2 + 1].toFixed(4)}) dist: ${dists[
+    lowIndex
+  ].toFixed(4)}`;
+
+  const median_string = `median point: #${middleIndex} (${points[
+    middleIndex * 2
+  ].toFixed(4)},${points[middleIndex * 2 + 1].toFixed(4)}) dist: ${dists[
+    middleIndex
+  ].toFixed(4)}`;
+
+  const high_string = `furthest point: #${highIndex} (${points[
+    highIndex * 2
+  ].toFixed(4)},${points[highIndex * 2 + 1].toFixed(4)}) dist: ${dists[
+    highIndex
+  ].toFixed(4)}`;
+
+  const avg_dist = dists.reduce((acc, c) => acc + c, 0) / dists.length;
+  const mean_dist_string = `mean point distance: ${avg_dist.toFixed(8)}`;
+
+  const delta_x = ((p5.pmouseX - p5.mouseX) / p5.width).toFixed(4);
+  const delta_y = ((p5.pmouseY - p5.mouseY) / p5.height).toFixed(4);
+  const mouse_string = `mouse position: (${(p5.mouseX / p5.width).toFixed(
+    4
+  )}, ${(p5.mouseY / p5.height).toFixed(
+    4
+  )}) mouse delta: (${delta_x}, ${delta_y})`;
+
+  const amp_string = `left channel: ${amps[0].toFixed(
+    8
+  )} right channel: ${amps[1].toFixed(8)}`;
+
+  p5.push();
+  p5.translate(x + pad, y + pad);
+  p5.text(low_string, 0, 0);
+  p5.text(median_string, 0, 15);
+  p5.text(high_string, 0, 30);
+  p5.text(mean_dist_string, 0, 45);
+  p5.text(mouse_string, 0, 60);
+  p5.text(amp_string, 0, 75);
   p5.pop();
 }
