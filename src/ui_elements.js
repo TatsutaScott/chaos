@@ -127,21 +127,22 @@ export function details(settings, points, dists, cols, x, y, w, h, pad = 20) {
   p5.translate(x + pad, y + pad);
   p5.text("points___     #: [x, y] distance", 0, 0);
 
-  //numbers
-  p5.translate(0, 20);
-  const step_x = (w - pad * 2) / cols;
-  const step_y = (h - pad * 2 - 10) / (dists.length / cols);
+  //
+  if (dists) {
+    p5.translate(0, 20);
+    const step_x = (w - pad * 2) / cols;
+    const step_y = (h - pad * 2 - 10) / (dists.length / cols);
 
-  for (let i = 0; i < dists.length; i++) {
-    const r = i % Math.ceil(dists.length / cols); //row
-    const c = Math.floor((i * cols) / dists.length); //column
+    for (let i = 0; i < dists.length; i++) {
+      const r = i % Math.ceil(dists.length / cols); //row
+      const c = Math.floor((i * cols) / dists.length); //column
 
-    const coord_x = points[i * 2].toFixed(4);
-    const coord_y = points[i * 2 + 1].toFixed(4);
-    const string = `${i}: [${coord_x}, ${coord_y}] ${dists[i].toFixed(4)}`;
-    p5.text(string, c * step_x, r * step_y);
+      const coord_x = points[i * 2].toFixed(4);
+      const coord_y = points[i * 2 + 1].toFixed(4);
+      const string = `${i}: [${coord_x}, ${coord_y}] ${dists[i].toFixed(4)}`;
+      p5.text(string, c * step_x, r * step_y);
+    }
   }
-
   p5.pop();
 }
 
@@ -167,19 +168,20 @@ export function dist_plot(settings, dists, x, y, w, h, pad = 20) {
   p5.translate(x + pad, y + pad);
   p5.text("distances___", 0, 0);
 
-  //plot
-  p5.translate(0, 10);
-  const plot_w = w - pad * 2;
-  const plot_h = h - pad * 2 - 10;
-  if (dev) p5.rect(0, 0, plot_w, plot_h);
+  if (dists) {
+    //plot
+    p5.translate(0, 10);
+    const plot_w = w - pad * 2;
+    const plot_h = h - pad * 2 - 10;
+    if (dev) p5.rect(0, 0, plot_w, plot_h);
 
-  p5.fill(dark);
-  p5.stroke(light);
-  const step_size = plot_w / dists.length;
-  for (let i = 0; i < dists.length; i++) {
-    p5.rect(step_size * i, 0, step_size, dists[i] * plot_h);
+    p5.fill(dark);
+    p5.stroke(light);
+    const step_size = plot_w / dists.length;
+    for (let i = 0; i < dists.length; i++) {
+      p5.rect(step_size * i, 0, step_size, dists[i] * plot_h);
+    }
   }
-
   p5.pop();
 }
 
