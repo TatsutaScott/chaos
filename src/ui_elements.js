@@ -97,7 +97,7 @@ export function amp_plot(settings, amps, x, y, w, h, pad = 20) {
   p5.beginShape();
   for (let i = 0; i < amps.length; i++) {
     const pos_x = (i / (amps.length - 1)) * plot_w;
-    p5.vertex(pos_x, p5.map(amps[i], -1, 1, 10, 10 + plot_h));
+    p5.vertex(pos_x, p5.map(amps[i], -1, 1, 10, 10 + plot_h, true));
   }
   p5.endShape();
 
@@ -209,7 +209,7 @@ export function info(settings, x, y, w, h, pad = 20) {
   p5.text("reset: [r]", w - pad * 2, 45);
 
   p5.text(
-    "'On Data and Knowing' developer: Scott Tatsuta  date: 2024",
+    "'a handful of sand' developer: Scott Tatsuta  date: 2024",
     w - pad * 2,
     h - pad * 2
   );
@@ -217,7 +217,7 @@ export function info(settings, x, y, w, h, pad = 20) {
   p5.pop();
 }
 
-/**
+/**write out extra info derived from all of the data
  * @param {{p5: Object, dark: Number, light: Number}} settings - settings for sketch including p5 drawing context, and colors
  * @param {[Number]} points - array containing points
  * @param {[Number]} dists - array containing distances from point to cursor

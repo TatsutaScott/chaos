@@ -23,38 +23,7 @@ let queue,
 
 new p5((p) => {
   p.preload = async () => {
-    //create a new HTML audio context and then set the output node
-    context = new AudioContext();
-    outputNode = context.createGain();
-    outputNode.connect(context.destination);
-
-    // Create a new RNBO device and connect to the HTML output node
-    device = await createDevice({ context, patcher });
-    device.node.connect(outputNode);
-
-    // The context needs to be clicked in order to start so this starts audio
-    document.body.onclick = () => context.resume();
-
-    // Subscribe method executes code whenever a message is received from the RNBO device
-    // Switch statement updates parameters based on the outlet of the RNBO device
-    device.messageEvent.subscribe((e) => {
-      switch (e.tag) {
-        case "out3":
-          point_arr = e.payload;
-          break;
-        case "out4":
-          dist_arr = e.payload;
-          break;
-        case "out5":
-          amp_arr.push(e.payload[0]);
-          if (amp_arr.length > 75) {
-            amp_arr.shift();
-          }
-          break;
-        default:
-          console.log(e);
-      }
-    });
+    rnbo_setup();
   };
 
   p.setup = () => {
@@ -94,7 +63,7 @@ new p5((p) => {
         setParam("master", 0);
       }
     } else if (v.keyCode === 82) {
-      console.log(context);
+      rnbo_setup();
     }
   };
 });
@@ -109,6 +78,7 @@ function sendMessage(tag, message) {
   device.scheduleEvent(event1);
 }
 
+// all of the ui components
 function ui(p5, dark, light, points, dists, amps, dev) {
   const h = p5.height;
   const w = p5.width;
@@ -144,4 +114,41 @@ function ui(p5, dark, light, points, dists, amps, dev) {
   );
 
   cursor(settings);
+}
+
+//set up the rnbo device. used on initialization and on reset
+async function rnbo_setup() {
+  if (context) context.close();
+  //create a new HTML audio context and then set the output node
+  context = new AudioContext();
+  outputNode = context.createGain();
+  outputNode.connect(context.destination);
+
+  // Create a new RNBO device and connect to the HTML output node
+  device = await createDevice({ context, patcher });
+  device.node.connect(outputNode);
+
+  // The context needs to be clicked in order to start so this starts audio
+  document.body.onclick = () => context.resume();
+
+  // Subscribe method executes code whenever a message is received from the RNBO device
+  // Switch statement updates parameters based on the outlet of the RNBO device
+  device.messageEvent.subscribe((e) => {
+    switch (e.tag) {
+      case "out3":
+        point_arr = e.payload;
+        break;
+      case "out4":
+        dist_arr = e.payload;
+        break;
+      case "out5":
+        amp_arr.push(e.payload[0]);
+        if (amp_arr.length > 75) {
+          amp_arr.shift();
+        }
+        break;
+      default:
+        console.log(e);
+    }
+  });
 }
