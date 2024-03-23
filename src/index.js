@@ -40,10 +40,11 @@ new p5((p) => {
       setParam("x", p.mouseX / p.width);
       setParam("y", p.mouseY / p.height);
       sendMessage("get_amp", "bang");
-      ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
     } catch (err) {
       console.log(err);
     }
+
+    ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
   };
 
   p.mousePressed = () => {
@@ -83,26 +84,30 @@ function ui(p5, dark, light, points, dists, amps, dev) {
   const h = p5.height;
   const w = p5.width;
   const settings = { p5, dark, light, dev };
-
-  //left hand column
   const left_w = h * 0.8; //width of the left column
-  point_plot(settings, points, 0, 0, left_w, left_w, 20);
-  amp_plot(settings, amps, 0, left_w, left_w, h - left_w, 20);
 
-  //right hand column
-  details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
-  dist_plot(settings, dists, left_w, h / 2, w - left_w, h / 4, 20);
-  extra_info(
-    settings,
-    points,
-    dists,
-    amps,
-    left_w,
-    h * 0.75,
-    (w - left_w) / 2,
-    h / 4,
-    20
-  );
+  try {
+    //left hand column
+    point_plot(settings, points, 0, 0, left_w, left_w, 20);
+    amp_plot(settings, amps, 0, left_w, left_w, h - left_w, 20);
+
+    //right hand column
+    details(settings, points, dists, 5, left_w, 0, w - left_w, h / 2, 20);
+    dist_plot(settings, dists, left_w, h / 2, w - left_w, h / 4, 20);
+    extra_info(
+      settings,
+      points,
+      dists,
+      amps,
+      left_w,
+      h * 0.75,
+      (w - left_w) / 2,
+      h / 4,
+      20
+    );
+  } catch (e) {
+    console.log(e);
+  }
 
   info(
     settings,
@@ -112,7 +117,6 @@ function ui(p5, dark, light, points, dists, amps, dev) {
     h / 4,
     20
   );
-
   cursor(settings);
 }
 
