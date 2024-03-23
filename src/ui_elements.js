@@ -211,7 +211,7 @@ export function info(settings, x, y, w, h, pad = 20) {
   p5.text("reset: [r]", w - pad * 2, 45);
 
   p5.text(
-    "'a handful of sand' developer: Scott Tatsuta  date: 2024",
+    "'a handful of sand' developer: Scott Tatsuta version: 1 date: March 23, 2024",
     w - pad * 2,
     h - pad * 2
   );
