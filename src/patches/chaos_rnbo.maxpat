@@ -285,7 +285,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-							"__presetid" : "LFO_module.rnbopat"
+							"__presetid" : "LFO_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -300,7 +300,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-										"__presetid" : "LFO_module.rnbopat"
+										"__presetid" : "LFO_module"
 									}
 ,
 									"fileref" : 									{
@@ -355,17 +355,125 @@
 					"autosave" : 1,
 					"id" : "obj-76",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 618.0, 268.0, 213.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -399,7 +507,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "karplus_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -414,7 +522,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "karplus_module"
 									}
 ,
 									"fileref" : 									{
@@ -441,17 +549,125 @@
 					"autosave" : 1,
 					"id" : "obj-75",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 618.0, 298.0, 213.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -485,7 +701,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "delay_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -500,7 +716,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "delay_module"
 									}
 ,
 									"fileref" : 									{
@@ -946,7 +1162,7 @@
 					"maxclass" : "plot~",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"numpoints" : 60,
+					"numpoints" : 51,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 292.0, 340.0, 306.0, 134.0 ],
 					"subplots" : [ 						{
@@ -1144,17 +1360,125 @@
 					"autosave" : 1,
 					"id" : "obj-7",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 619.0, 447.0, 212.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -1188,7 +1512,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "chorus_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -1203,7 +1527,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "chorus_module"
 									}
 ,
 									"fileref" : 									{
@@ -1240,17 +1564,125 @@
 					"autosave" : 1,
 					"id" : "obj-80",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 619.0, 418.0, 212.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -1284,7 +1716,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "filterbank_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -1299,7 +1731,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "filterbank_module"
 									}
 ,
 									"fileref" : 									{
@@ -1326,17 +1758,125 @@
 					"autosave" : 1,
 					"id" : "obj-79",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 619.0, 387.0, 212.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -1370,7 +1910,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "reverb_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -1385,7 +1925,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "reverb_module"
 									}
 ,
 									"fileref" : 									{
@@ -1412,17 +1952,125 @@
 					"autosave" : 1,
 					"id" : "obj-66",
 					"inletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "signal",
+								"index" : 1,
+								"tag" : "in1",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 2,
+								"tag" : "in2",
+								"comment" : ""
+							}
+, 							{
+								"type" : "event",
+								"index" : 3,
+								"tag" : "in3",
+								"comment" : "mouse_pos"
+							}
+, 							{
+								"type" : "event",
+								"index" : 4,
+								"tag" : "in4",
+								"comment" : "mouse_click"
+							}
+ ]
 					}
 ,
 					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 1,
+					"numinlets" : 4,
+					"numoutlets" : 15,
 					"outletInfo" : 					{
-						"IOInfo" : [  ]
+						"IOInfo" : [ 							{
+								"type" : "event",
+								"index" : 1,
+								"tag" : "out1",
+								"comment" : "points"
+							}
+, 							{
+								"type" : "event",
+								"index" : 2,
+								"tag" : "out2",
+								"comment" : "distances"
+							}
+, 							{
+								"type" : "signal",
+								"index" : 3,
+								"tag" : "out3",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 4,
+								"tag" : "out4",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 6,
+								"tag" : "out6",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 7,
+								"tag" : "out7",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 8,
+								"tag" : "out8",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 9,
+								"tag" : "out9",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 10,
+								"tag" : "out10",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 11,
+								"tag" : "out11",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 12,
+								"tag" : "out12",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 13,
+								"tag" : "out13",
+								"comment" : ""
+							}
+, 							{
+								"type" : "signal",
+								"index" : 14,
+								"tag" : "out14",
+								"comment" : ""
+							}
+ ]
 					}
 ,
-					"outlettype" : [ "list" ],
+					"outlettype" : [ "", "", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "signal", "list" ],
 					"patching_rect" : [ 619.0, 357.0, 212.0, 22.0 ],
 					"rnboattrcache" : 					{
 
@@ -1456,7 +2104,7 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-
+							"__presetid" : "distortion_module"
 						}
 ,
 						"snapshotlist" : 						{
@@ -1471,7 +2119,7 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-
+										"__presetid" : "distortion_module"
 									}
 ,
 									"fileref" : 									{
@@ -1627,38 +2275,14 @@
 					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 13.0, 205.0, 182.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"click" : 						{
-							"label" : "click",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"x" : 						{
-							"label" : "x",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
 						"y" : 						{
 							"label" : "y",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
 ,
-						"chorus" : 						{
-							"label" : "chorus",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
 						"filterbank" : 						{
 							"label" : "filterbank",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"distortion" : 						{
-							"label" : "distortion",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -1675,8 +2299,32 @@
 							"parsestring" : ""
 						}
 ,
+						"distortion" : 						{
+							"label" : "distortion",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"x" : 						{
+							"label" : "x",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"chorus" : 						{
+							"label" : "chorus",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
 						"master" : 						{
 							"label" : "master",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"click" : 						{
+							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -1719,7 +2367,7 @@
 						"snapshot" : 						{
 							"__presetid" : "chaos_main",
 							"x" : 							{
-								"value" : 0.08
+								"value" : 0.52
 							}
 ,
 							"click" : 							{
@@ -1727,7 +2375,7 @@
 							}
 ,
 							"y" : 							{
-								"value" : 0.78
+								"value" : 0.19
 							}
 ,
 							"chorus" : 							{
@@ -1833,7 +2481,7 @@
 									"snapshot" : 									{
 										"__presetid" : "chaos_main",
 										"x" : 										{
-											"value" : 0.08
+											"value" : 0.52
 										}
 ,
 										"click" : 										{
@@ -1841,7 +2489,7 @@
 										}
 ,
 										"y" : 										{
-											"value" : 0.78
+											"value" : 0.19
 										}
 ,
 										"chorus" : 										{
@@ -2300,20 +2948,6 @@
 					"destination" : [ "obj-67", 0 ],
 					"midpoints" : [ 120.299999999999997, 236.0, 301.5, 236.0 ],
 					"source" : [ "obj-29", 3 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-83", 1 ],
-					"source" : [ "obj-29", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-83", 0 ],
-					"source" : [ "obj-29", 0 ]
 				}
 
 			}
