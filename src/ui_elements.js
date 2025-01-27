@@ -274,7 +274,6 @@ export function extra_info(
 
   const avg_dist = dists.reduce((acc, c) => acc + c, 0) / dists.length;
   const mean_dist_string = `mean point distance: ${avg_dist.toFixed(8)}`;
-
   const delta_x = ((p5.pmouseX - p5.mouseX) / p5.width).toFixed(4);
   const delta_y = ((p5.pmouseY - p5.mouseY) / p5.height).toFixed(4);
   const mouse_string = `mouse position: (${(p5.mouseX / p5.width).toFixed(
