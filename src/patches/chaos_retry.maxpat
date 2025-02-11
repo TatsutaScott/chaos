@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 1468.0, 705.0 ],
+		"rect" : [ -427.0, 310.0, 1468.0, 705.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -390,7 +390,7 @@
 ,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 5,
+					"numoutlets" : 6,
 					"outletInfo" : 					{
 						"IOInfo" : [ 							{
 								"type" : "signal",
@@ -416,20 +416,20 @@
 								"tag" : "out4",
 								"comment" : "distances"
 							}
+, 							{
+								"type" : "event",
+								"index" : 5,
+								"tag" : "out5",
+								"comment" : "amplitude"
+							}
  ]
 					}
 ,
-					"outlettype" : [ "signal", "signal", "", "", "list" ],
+					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 472.0, 461.0, 308.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"leak" : 						{
-							"label" : "leak",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"x" : 						{
-							"label" : "x",
+						"master" : 						{
+							"label" : "master",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -440,14 +440,20 @@
 							"parsestring" : ""
 						}
 ,
+						"x" : 						{
+							"label" : "x",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
 						"click" : 						{
 							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
 ,
-						"master" : 						{
-							"label" : "master",
+						"leak" : 						{
+							"label" : "leak",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -500,7 +506,7 @@
 							}
 ,
 							"leak" : 							{
-								"value" : 1.0
+								"value" : 0.95
 							}
 
 						}
@@ -535,7 +541,7 @@
 										}
 ,
 										"leak" : 										{
-											"value" : 1.0
+											"value" : 0.95
 										}
 
 									}

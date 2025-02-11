@@ -1,7 +1,7 @@
 import p5 from "p5";
 import { createDevice, TimeNow, MessageEvent } from "@rnbo/js";
 // import patcher from "./export/chaos.export.json";
-import patcher from "./export/chaos_v2.rnbopat.export.json";
+import patcher from "./export/chaos_v2.2.export.json";
 
 import { Bubble, AnimationQueue } from "./animation";
 import {
