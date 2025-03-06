@@ -20,6 +20,7 @@
     "webpack-dev-server": "^5.0.2"
   },
   "dependencies": {
-    "@rnbo/js": "^1.2.5"
+    "@rnbo/js": "^1.2.5",
+    "p5.sound": "^0.1.0"
   }
 }
