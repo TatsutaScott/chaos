@@ -26,15 +26,16 @@ class InstantWaveform extends SoundVisualizer {
   draw() {
     if (this.waveform) {
       this.p.push();
-
+      this.p.clip(() => {
+        this.p.rect(this.x, this.y, this.w, this.h, 4);
+      });
       // draw background
       this.p.stroke(this.f_color);
       this.p.strokeWeight(1);
       this.draw_grid(6);
 
       // draw waveform
-      this.p.noFill();
-      this.p.rect(this.x, this.y, this.w, this.h);
+
       this.p.beginShape();
 
       for (let i = 0; i < this.waveform.length; i++) {
@@ -45,11 +46,16 @@ class InstantWaveform extends SoundVisualizer {
 
       this.p.endShape();
       this.p.pop();
+
+      this.p.noFill();
+      this.p.stroke(this.f_color);
+      this.p.rect(this.x, this.y, this.w, this.h, 4);
     }
   }
 
   draw_grid(n) {
     this.p.push();
+
     this.p.drawingContext.setLineDash([1, 2]);
     this.p.stroke(this.i_color);
     for (let i = 0; i <= n; i++) {

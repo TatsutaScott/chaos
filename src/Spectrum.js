@@ -50,12 +50,18 @@ class Spectrum extends Rectangle {
   draw() {
     if (this.spectrum) {
       this.p.push();
-
+      this.p.clip(() => {
+        this.p.rect(this.x, this.y, this.w, this.h, 4);
+      });
       this.p.fill(this.b_color);
       this.p.rect(this.x, this.y, this.w, this.h);
       this.draw_grid(10);
       this.drawSpectrum(this.spectrumAvg, this.f_color, this.f_color);
       this.p.pop();
+
+      this.p.noFill();
+      this.p.stroke(this.f_color);
+      this.p.rect(this.x, this.y, this.w, this.h, 4);
     }
   }
 
