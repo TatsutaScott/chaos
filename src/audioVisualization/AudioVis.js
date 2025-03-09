@@ -6,7 +6,7 @@ import Spectrum from "./Spectrum";
 const text_offset = 15;
 const FFTbins = 128;
 
-class AudioVis {
+class AudioVisCollection {
   constructor(p, x, y, width, height, padding, colors) {
     this.fft = new p5.FFT(0, FFTbins);
     this.p = p;
@@ -102,4 +102,4 @@ class AudioVis {
   }
 }
 
-export default AudioVis;
+export default AudioVisCollection;

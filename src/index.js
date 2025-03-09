@@ -13,7 +13,7 @@ import {
   extra_info,
 } from "./ui_elements";
 
-import AudioVis from "./AudioVis";
+import AudioVisCollection from "./audioVisualization/AudioVis";
 
 let queue,
   song,
@@ -41,7 +41,7 @@ new p5((p) => {
 
   p.setup = () => {
     p.createCanvas(window.innerWidth, window.innerHeight);
-    AV = new AudioVis(
+    AV = new AudioVisCollection(
       p,
       p.width * 0.15,
       0,
