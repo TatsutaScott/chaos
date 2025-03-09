@@ -1,8 +1,7 @@
-import p5 from "p5";
+window.p5 = require("p5");
+require("p5/lib/addons/p5.sound");
 import { createDevice, TimeNow, MessageEvent } from "@rnbo/js";
-// import patcher from "./export/chaos.export.json";
-import patcher from "./export/chaos_v2.2.export.json";
-
+import patcher from "./export/chaos_v3.export.json";
 import { Bubble, AnimationQueue } from "./animation";
 import {
   cursor,
@@ -14,63 +13,127 @@ import {
   extra_info,
 } from "./ui_elements";
 
+import AudioVis from "./AudioVis";
+
 let queue,
+  song,
   context,
   outputNode,
   device,
   point_arr,
   dist_arr,
   master = 1,
+  AV,
   amp_arr = [];
 
 new p5((p) => {
-  p.preload = async () => {
-    rnbo_setup();
+  const colors = {
+    bg: p.color(200),
+    fg: p.color(50),
+    i: p.color(50, 50, 50, 50),
+  };
+
+  p.preload = () => {
+    rnbo_setup(p.getAudioContext()).then((e) => {
+      AV.setFFTInput(outputNode);
+    });
   };
 
   p.setup = () => {
-    queue = new AnimationQueue();
     p.createCanvas(window.innerWidth, window.innerHeight);
+    AV = new AudioVis(
+      p,
+      p.width * 0.15,
+      0,
+      p.width * 0.85,
+      p.width * 0.15,
+      5,
+      colors
+    );
     p.textFont("Courier New", 10);
+    queue = new AnimationQueue();
   };
 
   p.draw = () => {
     p.background(200);
     queue.update(p);
-
+    //  ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
     try {
       setParam("x", p.mouseX / p.width);
       setParam("y", p.mouseY / p.height);
-      setParam("master", 1);
-      sendMessage("get_amp", "bang");
     } catch (err) {
       console.log(err);
     }
 
-    ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
+    AV.update();
+    AV.draw();
+
+    point_plot(
+      { p5: p, dark: 50, light: 200, dev: false },
+      point_arr,
+      0,
+      0,
+      300,
+      300,
+      20
+    );
   };
 
   p.mousePressed = () => {
-    queue.add(new Bubble(p.mouseX, p.mouseY));
-    setParam("click", 1);
-    setParam("click", 0);
-  };
-
-  p.keyPressed = (v) => {
-    //mute / unmute on space bar
-    if (v.keyCode === 32) {
-      if (master == 0) {
-        master = 1;
-        setParam("master", 1);
-      } else {
-        master = 0;
-        setParam("master", 0);
-      }
-    } else if (v.keyCode === 82) {
-      rnbo_setup();
-    }
+    setParam("left_click", 1);
+    setParam("left_click", 0);
   };
 });
+
+// new p5((p) => {
+//   p.preload = async () => {
+//     rnbo_setup();
+//   };
+
+//   p.setup = () => {
+//     queue = new AnimationQueue();
+//     p.createCanvas(window.innerWidth, window.innerHeight);
+//     p.textFont("Courier New", 10);
+//     console.log(p);
+//   };
+
+//   p.draw = () => {
+//     p.background(200);
+//     queue.update(p);
+
+//     try {
+//       setParam("x", p.mouseX / p.width);
+//       setParam("y", p.mouseY / p.height);
+//       // setParam("master", 1);
+//       // sendMessage("get_amp", "bang");
+//     } catch (err) {
+//       console.log(err);
+//     }
+
+//     ui(p, 150, 200, point_arr, dist_arr, amp_arr, false);
+//   };
+
+//   p.mousePressed = () => {
+//     queue.add(new Bubble(p.mouseX, p.mouseY));
+//     setParam("left_click", 1);
+//     setParam("left_click", 0);
+//   };
+
+//   p.keyPressed = (v) => {
+//     //mute / unmute on space bar
+//     if (v.keyCode === 32) {
+//       if (master == 0) {
+//         master = 1;
+//         setParam("master", 1);
+//       } else {
+//         master = 0;
+//         setParam("master", 0);
+//       }
+//     } else if (v.keyCode === 82) {
+//       rnbo_setup();
+//     }
+//   };
+// });
 
 function setParam(param, value) {
   const p = device.parametersById.get(param);
@@ -124,10 +187,10 @@ function ui(p5, dark, light, points, dists, amps, dev) {
 }
 
 //set up the rnbo device. used on initialization and on reset
-async function rnbo_setup() {
-  if (context) context.close();
+async function rnbo_setup(ctx) {
+  // if (context) context.close();
   //create a new HTML audio context and then set the output node
-  context = new AudioContext();
+  context = ctx || new AudioContext();
   outputNode = context.createGain();
   outputNode.connect(context.destination);
 
@@ -155,7 +218,7 @@ async function rnbo_setup() {
         }
         break;
       default:
-        console.log(e);
+      //console.log(e);
     }
   });
 }

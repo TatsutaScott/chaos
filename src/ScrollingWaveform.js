@@ -34,10 +34,6 @@ class ScrollingWaveform extends SoundVisualizer {
   }
 
   resetGraphicsBuffer(gfxBuffer) {
-    // gfxBuffer.push();
-    // gfxBuffer.background(this.b_color);
-    // gfxBuffer.pop();
-
     gfxBuffer.strokeWeight(1);
     gfxBuffer.stroke(this.f_color);
     gfxBuffer.noFill();
