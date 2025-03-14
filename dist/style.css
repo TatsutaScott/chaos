@@ -1,13 +1,231 @@
+/* PAGE SETUP */
 * {
-  margin: 0;
-  padding: 0;
-  font-family: Helvetica, sans-serif;
-  font-weight: 100;
-  color: gray;
-  overflow: hidden;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+ }
+
+ body {
+   width: 100vw;
+   height: 100vh;
+   background-color: rgb(200, 200, 200);
+    cursor: none;
+ }
+
+ .content {
+   width: auto;
+   height: 100%;
+   padding: 0.5em;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+ }
+
+ /* TOP ROW */
+ #top-row {
+   width: 100%;
+    display: grid;
+    grid-template-areas:
+      'a a a c c '
+      'a a a c c'
+      'a a a c c'
+      'b b b c c'
+      'b b b c c';
+ }
+
+ #point-plot {
+    /* background-color: lightcoral; */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    grid-area: a;
+ }
+
+ .square {
+  height: 30vh;
+   aspect-ratio: 1 / 1;
+ }
+
+ #instant-plots {
+   height: auto;
+   width: auto;
+  
+   display: flex;
+   flex-direction: column;
+   grid-area: b;
+   min-height: 100px;
+ }
+
+ #instant-spectrum {
+   height: 50%;
+   width: auto;
+   /* background-color: lightcyan; */
+ }
+
+ #instant-wave {
+   height: 50%;
+   width: auto;
+   /* background-color: lightgreen; */
+ }
+ #instant-plots .label {
+   display:none;
+ }
+
+
+ #scrolling-spectrum {
+   /* background-color: lightgoldenrodyellow; */
+   height: auto;
+   flex: 1;
+   grid-area:c;
+   min-height: 50px;
+ }
+
+/* GENERAL UTIL CLASSES */
+ .fake-canvas {
+   border-radius: 5px;
+   border: 1px black solid;
+   /* background-color: rgba(245, 245, 245, 0.249); */
+ }
+
+ .label {
+   font-size: 10pt;
+   display: block;
+   color: black;
+   flex-shrink: 0;
+   font-family: 'Courier New', Courier, monospace;
+ }
+
+ .fill {
+   height: 100%;
+   width: 100%;
+ }
+
+ .container {
+   display: flex;
+   flex-direction: column;
+   gap: 0.25em;
+   padding: 0.5em;
+ }
+
+/* POINT DATA */
+#point-data {
+  /* background-color: lightskyblue; */
+  max-height: 10vh;
+  min-height: 5vh;
 }
 
-canvas {
-  display: block;
+#data-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.data {
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10pt;
+}
+
+/* BOTTOM ROW */
+#bottom-row {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  flex: 1;
+}
+#info {
+  /* background-color: lightseagreen; */
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+
+}
+#distance-graph {
+  /* background-color: lightpink; */
+  width: auto;
+  flex: 1;
+}
+
+@media only screen and (min-width: 700px) {
+  #top-row {
+    display: flex;
+    flex-direction: row;
+  }
+  #point-plot {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+  
+  #point-plot .label {
+    writing-mode: unset;
+    transform: rotate(0deg);
+  }
+
+  #instant-plots {
+    flex: 3;
+  }
+  
+  #instant-plots .label {
+    display: block;
+  }
+
+  #scrolling-spectrum {
+    flex: 5;
+  }
+
+  #point-data {
+    max-height: 25vh;
+    min-height: 5vh;
+  }
+
+  #bottom-row {
+    flex-direction: row;
+  }
+
+  #distance-graph {
+    width: 65%;
+  }
+
+  #info {         
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+/* OVERLAY */
+#overlay{
+  position: absolute; 
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
   cursor: none;
+  
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
