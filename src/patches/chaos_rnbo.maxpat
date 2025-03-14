@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 77.0, 1119.0, 705.0 ],
+		"rect" : [ 134.0, 134.0, 1119.0, 705.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -110,8 +110,8 @@
 					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 132.800000000000011, 545.0, 311.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"x" : 						{
-							"label" : "x",
+						"y" : 						{
+							"label" : "y",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -122,14 +122,14 @@
 							"parsestring" : ""
 						}
 ,
-						"y" : 						{
-							"label" : "y",
+						"click" : 						{
+							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
 ,
-						"click" : 						{
-							"label" : "click",
+						"x" : 						{
+							"label" : "x",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -211,7 +211,7 @@
 ,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 7,
+					"numoutlets" : 5,
 					"outletInfo" : 					{
 						"IOInfo" : [ 							{
 								"type" : "signal",
@@ -237,26 +237,20 @@
 								"tag" : "out4",
 								"comment" : "distances"
 							}
-, 							{
-								"type" : "event",
-								"index" : 5,
-								"tag" : "out5",
-								"comment" : "left channel amplitude"
-							}
-, 							{
-								"type" : "event",
-								"index" : 6,
-								"tag" : "out6",
-								"comment" : "right channel amplitude"
-							}
  ]
 					}
 ,
-					"outlettype" : [ "signal", "signal", "", "", "", "", "list" ],
+					"outlettype" : [ "signal", "signal", "", "", "list" ],
 					"patching_rect" : [ 13.0, 188.0, 331.0, 22.0 ],
 					"rnboattrcache" : 					{
 						"left_click" : 						{
 							"label" : "left_click",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"y" : 						{
+							"label" : "y",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -267,8 +261,8 @@
 							"parsestring" : ""
 						}
 ,
-						"y" : 						{
-							"label" : "y",
+						"master" : 						{
+							"label" : "master",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -303,6 +297,10 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
+							"master" : 							{
+								"value" : 0.0
+							}
+,
 							"__presetid" : "chaos_v3_main.rnbopat",
 							"x" : 							{
 								"value" : 0.15
@@ -345,6 +343,10 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
+										"master" : 										{
+											"value" : 0.0
+										}
+,
 										"__presetid" : "chaos_v3_main.rnbopat",
 										"x" : 										{
 											"value" : 0.15
@@ -482,8 +484,14 @@
 					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 132.800000000000011, 515.0, 378.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"x" : 						{
-							"label" : "x",
+						"LFO" : 						{
+							"label" : "LFO",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"karplus" : 						{
+							"label" : "karplus",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -494,20 +502,14 @@
 							"parsestring" : ""
 						}
 ,
+						"chorus" : 						{
+							"label" : "chorus",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
 						"filterbank" : 						{
 							"label" : "filterbank",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"master" : 						{
-							"label" : "master",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"LFO" : 						{
-							"label" : "LFO",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -518,8 +520,8 @@
 							"parsestring" : ""
 						}
 ,
-						"reverb" : 						{
-							"label" : "reverb",
+						"master" : 						{
+							"label" : "master",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -530,20 +532,20 @@
 							"parsestring" : ""
 						}
 ,
-						"chorus" : 						{
-							"label" : "chorus",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
 						"click" : 						{
 							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
 ,
-						"karplus" : 						{
-							"label" : "karplus",
+						"reverb" : 						{
+							"label" : "reverb",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"x" : 						{
+							"label" : "x",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -578,117 +580,6 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-							"__presetid" : "chaos_main_deprecated.rnbopat",
-							"x" : 							{
-								"value" : 0.0
-							}
-,
-							"click" : 							{
-								"value" : 0.0
-							}
-,
-							"y" : 							{
-								"value" : 0.0
-							}
-,
-							"chorus" : 							{
-								"value" : 1.0
-							}
-,
-							"filterbank" : 							{
-								"value" : 1.0
-							}
-,
-							"LFO" : 							{
-								"value" : 1.0
-							}
-,
-							"delay" : 							{
-								"value" : 1.0
-							}
-,
-							"reverb" : 							{
-								"value" : 1.0
-							}
-,
-							"distortion" : 							{
-								"value" : 1.0
-							}
-,
-							"__sps" : 							{
-								"p_obj-58" : 								{
-
-								}
-,
-								"sends[7]" : 								{
-
-								}
-,
-								"p_obj-12" : 								{
-
-								}
-,
-								"p_obj-38" : 								{
-
-								}
-,
-								"p_obj-16" : 								{
-
-								}
-,
-								"sends[2]" : 								{
-
-								}
-,
-								"sends[4]" : 								{
-
-								}
-,
-								"sends[6]" : 								{
-
-								}
-,
-								"p_obj-48" : 								{
-
-								}
-,
-								"sends[3]" : 								{
-
-								}
-,
-								"p_obj-28" : 								{
-
-								}
-,
-								"sends[5]" : 								{
-
-								}
-,
-								"p_obj-150" : 								{
-
-								}
-,
-								"sends" : 								{
-
-								}
-,
-								"p_obj-68" : 								{
-
-								}
-,
-								"sends[1]" : 								{
-
-								}
-
-							}
-,
-							"karplus" : 							{
-								"value" : 1.0
-							}
-,
-							"master" : 							{
-								"value" : 1.0
-							}
 
 						}
 ,
@@ -704,117 +595,6 @@
 									"subtype" : "",
 									"embed" : 1,
 									"snapshot" : 									{
-										"__presetid" : "chaos_main_deprecated.rnbopat",
-										"x" : 										{
-											"value" : 0.0
-										}
-,
-										"click" : 										{
-											"value" : 0.0
-										}
-,
-										"y" : 										{
-											"value" : 0.0
-										}
-,
-										"chorus" : 										{
-											"value" : 1.0
-										}
-,
-										"filterbank" : 										{
-											"value" : 1.0
-										}
-,
-										"LFO" : 										{
-											"value" : 1.0
-										}
-,
-										"delay" : 										{
-											"value" : 1.0
-										}
-,
-										"reverb" : 										{
-											"value" : 1.0
-										}
-,
-										"distortion" : 										{
-											"value" : 1.0
-										}
-,
-										"__sps" : 										{
-											"p_obj-58" : 											{
-
-											}
-,
-											"sends[7]" : 											{
-
-											}
-,
-											"p_obj-12" : 											{
-
-											}
-,
-											"p_obj-38" : 											{
-
-											}
-,
-											"p_obj-16" : 											{
-
-											}
-,
-											"sends[2]" : 											{
-
-											}
-,
-											"sends[4]" : 											{
-
-											}
-,
-											"sends[6]" : 											{
-
-											}
-,
-											"p_obj-48" : 											{
-
-											}
-,
-											"sends[3]" : 											{
-
-											}
-,
-											"p_obj-28" : 											{
-
-											}
-,
-											"sends[5]" : 											{
-
-											}
-,
-											"p_obj-150" : 											{
-
-											}
-,
-											"sends" : 											{
-
-											}
-,
-											"p_obj-68" : 											{
-
-											}
-,
-											"sends[1]" : 											{
-
-											}
-
-										}
-,
-										"karplus" : 										{
-											"value" : 1.0
-										}
-,
-										"master" : 										{
-											"value" : 1.0
-										}
 
 									}
 ,
@@ -3235,7 +3015,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 321.0, 327.0, 287.0, 127.0 ],
 					"subplots" : [ 						{
-							"color" : [ 0.4, 0.4, 0.75, 1.0 ],
+							"color" : [ 0.400000005960464, 0.400000005960464, 0.75, 1.0 ],
 							"thickness" : 3.0,
 							"point_style" : "circle",
 							"line_style" : "origin",
