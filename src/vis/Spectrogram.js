@@ -1,31 +1,16 @@
 import SoundVisualizer from "./SoundVis";
 
 class Spectrogram extends SoundVisualizer {
-  constructor(p, x, y, w, h, palette, length, padding = 20) {
-    super(
-      p,
-      x + padding,
-      y + padding,
-      w - padding * 2,
-      h - padding * 2,
-      palette.bg,
-      palette.fg,
-      length
-    );
+  constructor(p, palette, length = 1) {
+    super(p, 0, 0, p.width, p.height, palette.bg, palette.fg, length);
 
     // the spectrogram works by drawing on offscreen graphics
     // which is crucial to performance! the idea here is that we
     // draw each spectrum buffer once and only once to the offscreen
     // buffer and then just "paint" this image to the screen (which is fast)
     // we need two offscreen buffers to support our scrolling effect.
-    this.offscreenGfxBuffer1 = this.p.createGraphics(
-      w - padding * 2,
-      h - padding * 2
-    );
-    this.offscreenGfxBuffer2 = this.p.createGraphics(
-      w - padding * 2,
-      h - padding * 2
-    );
+    this.offscreenGfxBuffer1 = this.p.createGraphics(p.width, p.height);
+    this.offscreenGfxBuffer2 = this.p.createGraphics(p.width, p.height);
 
     this.offscreenGfxBuffer1.x = 0;
     this.offscreenGfxBuffer2.x = this.offscreenGfxBuffer1.width;
@@ -36,9 +21,7 @@ class Spectrogram extends SoundVisualizer {
   }
 
   resetGraphicsBuffer(gfxBuffer) {
-    gfxBuffer.push();
-    gfxBuffer.background(this.b_color);
-    gfxBuffer.pop();
+    gfxBuffer.clear();
   }
 
   update(spectrum) {
@@ -101,19 +84,9 @@ class Spectrogram extends SoundVisualizer {
   }
 
   draw() {
-    this.p.push();
-    this.p.clip(() => {
-      this.p.rect(this.x, this.y, this.w, this.h, 4);
-    });
-    this.p.translate(this.x, this.y);
     // draw our offscreen buffers to the screen!
     this.p.image(this.offscreenGfxBuffer1, this.offscreenGfxBuffer1.x, 0);
     this.p.image(this.offscreenGfxBuffer2, this.offscreenGfxBuffer2.x, 0);
-    this.p.pop();
-
-    this.p.noFill();
-    this.p.stroke(this.f_color);
-    this.p.rect(this.x, this.y, this.w, this.h, 4);
   }
 }
 

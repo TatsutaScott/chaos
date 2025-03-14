@@ -3,10 +3,10 @@
 
 import Rectangle from "./Rectangle";
 
-class Spectrum extends Rectangle {
+class InstantSpectrum extends Rectangle {
   // see: https://p5js.org/reference/#/p5.FFT
-  constructor(p, x, y, w, h, palette, padding = 20) {
-    super(x + padding, y + padding, w - 2 * padding, h - 2 * padding);
+  constructor(p, palette) {
+    super(0, 0, p.width, p.height);
     this.p = p;
 
     this.spectrum = null;
@@ -49,19 +49,10 @@ class Spectrum extends Rectangle {
 
   draw() {
     if (this.spectrum) {
-      this.p.push();
-      this.p.clip(() => {
-        this.p.rect(this.x, this.y, this.w, this.h, 4);
-      });
-      this.p.fill(this.b_color);
-      this.p.rect(this.x, this.y, this.w, this.h);
+      this.p.clear();
+
       this.draw_grid(10);
       this.drawSpectrum(this.spectrumAvg, this.f_color, this.f_color);
-      this.p.pop();
-
-      this.p.noFill();
-      this.p.stroke(this.f_color);
-      this.p.rect(this.x, this.y, this.w, this.h, 4);
     }
   }
 
@@ -92,4 +83,4 @@ class Spectrum extends Rectangle {
   }
 }
 
-export default Spectrum;
+export default InstantSpectrum;

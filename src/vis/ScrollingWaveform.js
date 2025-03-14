@@ -4,17 +4,8 @@
 import SoundVisualizer from "./SoundVis";
 
 class ScrollingWaveform extends SoundVisualizer {
-  constructor(p, x, y, w, h, palette, length, padding = 20) {
-    super(
-      p,
-      x + padding,
-      y + padding,
-      w - padding * 2,
-      h - padding * 2,
-      palette.bg,
-      palette.fg,
-      length
-    );
+  constructor(p, palette, length = 1) {
+    super(p, 0, 0, p.width, p.height, palette.bg, palette.fg, length);
 
     // the scrolling waveform works by drawing on offscreen graphics
     // which is crucial to performance! the idea here is that we
@@ -54,7 +45,7 @@ class ScrollingWaveform extends SoundVisualizer {
         if (this.offscreenGfxBuffer1.x < newXPosForGfxBuffer1) {
           // if we're here, then this graphics buffer just looped around
           // and needs to be cleared
-          this.resetGraphicsBuffer(this.offscreenGfxBuffer1); // color(100, 0, 0)
+          this.resetGraphicsBuffer(this.offscreenGfxBuffer1);
         }
 
         this.offscreenGfxBuffer1.x = newXPosForGfxBuffer1;
@@ -66,7 +57,7 @@ class ScrollingWaveform extends SoundVisualizer {
         if (this.offscreenGfxBuffer2.x < newXPosForGfxBuffer2) {
           // if we're here, then this graphics buffer just looped around
           // and needs to be cleared
-          this.resetGraphicsBuffer(this.offscreenGfxBuffer2); // color(100, 0, 100)
+          this.resetGraphicsBuffer(this.offscreenGfxBuffer2);
         }
 
         this.offscreenGfxBuffer1.x = this.w - (xVal + this.w);
@@ -122,15 +113,8 @@ class ScrollingWaveform extends SoundVisualizer {
   }
 
   draw() {
-    this.p.push();
-    this.p.clip(() => {
-      this.p.rect(this.x, this.y, this.w, this.h, 4);
-    });
-    this.p.translate(this.x, this.y);
-    // draw our offscreen buffers to the screen!
     this.p.image(this.offscreenGfxBuffer1, this.offscreenGfxBuffer1.x, 0);
     this.p.image(this.offscreenGfxBuffer2, this.offscreenGfxBuffer2.x, 0);
-    this.p.pop();
   }
 }
 
