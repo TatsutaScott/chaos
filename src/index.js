@@ -47,8 +47,11 @@ window.addEventListener("touchstart", (event) => {
   const tapLength = currentTime - lastTap;
 
   if (tapLength < doubleTapThreshold && tapLength > 0) {
-    console.log("Double tap detected!");
-    // You can trigger any function here
+    if (e.code == "Space") {
+      master = !master;
+      const vol = master ? 1 : 0;
+      setParam("master", vol);
+    }
   }
 
   lastTap = currentTime;
