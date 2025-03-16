@@ -39,8 +39,24 @@ window.addEventListener("touchmove", (event) => {
   }
 });
 
-window.addEventListener("pointerdown", () => {
+let lastTap = 0;
+const doubleTapThreshold = 300; // Maximum time (ms) between taps
+
+window.addEventListener("touchstart", (event) => {
+  const currentTime = new Date().getTime();
+  const tapLength = currentTime - lastTap;
+
+  if (tapLength < doubleTapThreshold && tapLength > 0) {
+    console.log("Double tap detected!");
+    // You can trigger any function here
+  }
+
+  lastTap = currentTime;
+});
+
+window.addEventListener("pointerdown", (e) => {
   try {
+    console.log(e);
     setParam("left_click", 1);
     setParam("left_click", 0);
     if (!master) {
