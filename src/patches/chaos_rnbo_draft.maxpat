@@ -136,38 +136,8 @@
 					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 81.0, 515.0, 304.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"click" : 						{
-							"label" : "click",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"x" : 						{
-							"label" : "x",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"y" : 						{
-							"label" : "y",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"chorus" : 						{
-							"label" : "chorus",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"filterbank" : 						{
-							"label" : "filterbank",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"LFO" : 						{
-							"label" : "LFO",
+						"distortion" : 						{
+							"label" : "distortion",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -184,8 +154,26 @@
 							"parsestring" : ""
 						}
 ,
-						"distortion" : 						{
-							"label" : "distortion",
+						"chorus" : 						{
+							"label" : "chorus",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"x" : 						{
+							"label" : "x",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"master" : 						{
+							"label" : "master",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"LFO" : 						{
+							"label" : "LFO",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -196,8 +184,20 @@
 							"parsestring" : ""
 						}
 ,
-						"master" : 						{
-							"label" : "master",
+						"filterbank" : 						{
+							"label" : "filterbank",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"y" : 						{
+							"label" : "y",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"click" : 						{
+							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -662,7 +662,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 77.0, 1468.0, 705.0 ],
+						"rect" : [ -129.0, 379.0, 1468.0, 705.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -900,7 +900,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "LFO_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -915,7 +915,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "LFO_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1034,7 +1034,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "karplus_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1049,7 +1049,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "karplus_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1168,7 +1168,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "delay_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1183,7 +1183,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "delay_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1302,7 +1302,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "chorus_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1317,7 +1317,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "chorus_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1436,7 +1436,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "filterbank_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1451,7 +1451,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "filterbank_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1570,7 +1570,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "reverb_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1585,7 +1585,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "reverb_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1704,7 +1704,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "distortion_module"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1719,7 +1719,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "distortion_module"
+
 													}
 ,
 													"fileref" : 													{
@@ -1826,7 +1826,7 @@
 										"subtype" : "Undefined",
 										"embed" : 1,
 										"snapshot" : 										{
-											"__presetid" : "sound_generation"
+
 										}
 ,
 										"snapshotlist" : 										{
@@ -1841,7 +1841,7 @@
 													"subtype" : "",
 													"embed" : 0,
 													"snapshot" : 													{
-														"__presetid" : "sound_generation"
+
 													}
 ,
 													"fileref" : 													{
@@ -2963,8 +2963,8 @@
 					"outlettype" : [ "signal", "signal", "", "", "", "list" ],
 					"patching_rect" : [ 13.0, 205.0, 182.0, 22.0 ],
 					"rnboattrcache" : 					{
-						"LFO" : 						{
-							"label" : "LFO",
+						"distortion" : 						{
+							"label" : "distortion",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -2975,14 +2975,8 @@
 							"parsestring" : ""
 						}
 ,
-						"x" : 						{
-							"label" : "x",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"distortion" : 						{
-							"label" : "distortion",
+						"reverb" : 						{
+							"label" : "reverb",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -2993,20 +2987,8 @@
 							"parsestring" : ""
 						}
 ,
-						"reverb" : 						{
-							"label" : "reverb",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"karplus" : 						{
-							"label" : "karplus",
-							"isEnum" : 0,
-							"parsestring" : ""
-						}
-,
-						"y" : 						{
-							"label" : "y",
+						"x" : 						{
+							"label" : "x",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -3017,14 +2999,32 @@
 							"parsestring" : ""
 						}
 ,
-						"click" : 						{
-							"label" : "click",
+						"LFO" : 						{
+							"label" : "LFO",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"karplus" : 						{
+							"label" : "karplus",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
 ,
 						"filterbank" : 						{
 							"label" : "filterbank",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"y" : 						{
+							"label" : "y",
+							"isEnum" : 0,
+							"parsestring" : ""
+						}
+,
+						"click" : 						{
+							"label" : "click",
 							"isEnum" : 0,
 							"parsestring" : ""
 						}
@@ -3059,97 +3059,6 @@
 						"subtype" : "Undefined",
 						"embed" : 1,
 						"snapshot" : 						{
-							"reverb" : 							{
-								"value" : 1.0
-							}
-,
-							"__presetid" : "chaos_main",
-							"x" : 							{
-								"value" : 0.4
-							}
-,
-							"click" : 							{
-								"value" : 1.0
-							}
-,
-							"y" : 							{
-								"value" : 0.76
-							}
-,
-							"filterbank" : 							{
-								"value" : 1.0
-							}
-,
-							"LFO" : 							{
-								"value" : 1.0
-							}
-,
-							"delay" : 							{
-								"value" : 1.0
-							}
-,
-							"chorus" : 							{
-								"value" : 1.0
-							}
-,
-							"__sps" : 							{
-								"audio" : 								{
-
-								}
-,
-								"p_obj-12" : 								{
-
-								}
-,
-								"p_obj-38" : 								{
-
-								}
-,
-								"p_obj-16" : 								{
-
-								}
-,
-								"p_obj-48" : 								{
-
-								}
-,
-								"audio[1]" : 								{
-
-								}
-,
-								"p_obj-150" : 								{
-
-								}
-,
-								"p_obj-172" : 								{
-
-								}
-,
-								"p_obj-28" : 								{
-
-								}
-,
-								"p_obj-58" : 								{
-
-								}
-,
-								"p_obj-68" : 								{
-
-								}
-
-							}
-,
-							"karplus" : 							{
-								"value" : 1.0
-							}
-,
-							"master" : 							{
-								"value" : 1.0
-							}
-,
-							"distortion" : 							{
-								"value" : 1.0
-							}
 
 						}
 ,
@@ -3165,97 +3074,6 @@
 									"subtype" : "",
 									"embed" : 0,
 									"snapshot" : 									{
-										"reverb" : 										{
-											"value" : 1.0
-										}
-,
-										"__presetid" : "chaos_main",
-										"x" : 										{
-											"value" : 0.4
-										}
-,
-										"click" : 										{
-											"value" : 1.0
-										}
-,
-										"y" : 										{
-											"value" : 0.76
-										}
-,
-										"filterbank" : 										{
-											"value" : 1.0
-										}
-,
-										"LFO" : 										{
-											"value" : 1.0
-										}
-,
-										"delay" : 										{
-											"value" : 1.0
-										}
-,
-										"chorus" : 										{
-											"value" : 1.0
-										}
-,
-										"__sps" : 										{
-											"audio" : 											{
-
-											}
-,
-											"p_obj-12" : 											{
-
-											}
-,
-											"p_obj-38" : 											{
-
-											}
-,
-											"p_obj-16" : 											{
-
-											}
-,
-											"p_obj-48" : 											{
-
-											}
-,
-											"audio[1]" : 											{
-
-											}
-,
-											"p_obj-150" : 											{
-
-											}
-,
-											"p_obj-172" : 											{
-
-											}
-,
-											"p_obj-28" : 											{
-
-											}
-,
-											"p_obj-58" : 											{
-
-											}
-,
-											"p_obj-68" : 											{
-
-											}
-
-										}
-,
-										"karplus" : 										{
-											"value" : 1.0
-										}
-,
-										"master" : 										{
-											"value" : 1.0
-										}
-,
-										"distortion" : 										{
-											"value" : 1.0
-										}
 
 									}
 ,
