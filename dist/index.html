@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>a handful of sand</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
+    <div class="content">
+    <div id="top-row">
+
+      <div id="point-plot" class="container">
+        <span class="label">point plot_____</span>
+        <div  id="point-plot-cnv" class="fake-canvas square"></div>
+      </div> 
+
+      <div id="instant-plots">
+
+        <div id="instant-wave" class="container">
+          <span class="label">instant wave_____</span>
+          <div id="instant-wave-cnv"class="fake-canvas fill"></div>
+        </div>
+
+        <div id="instant-spectrum" class="container">
+          <span class="label">instant spectrum_____</span>
+          <div id="instant-spectrum-cnv" class="fake-canvas fill"></div>
+        </div>
+
+      </div>
+
+      <div id="scrolling-spectrum" class="container">
+        <span class="label">scrolling spectrum_____</span>
+        <div id="scrolling-spectrum-cnv" class="fake-canvas fill"></div>
+      </div>
+    </div>
+    <div id="point-data" class="container">
+      <span class="label">point data_____</span>
+      <div id="data-container">
+      </div>
+    </div>
+    <div id="bottom-row">
+      <div id="info" class="container">
+        <div id="controls">
+          <span class="label">controls_____</span>
+          <span class="label">scramble + new impulse: [click]</span>
+          <span class="label">mute: [space] / [double tap]</span>
+        </div>
+        <div id="piece-info">
+          <span id="title" class="label"> to hold water</span>
+          <span class="label">artist: Scott Tatsuta</span>
+          <span class="label">version: 2</span>
+          <span class="label">created: March 23, 2024 | last updated: March 23, 2024 </span>
+        </div>
+      </div>
+      <div id="distance-graph" class="container">
+        <span class="label">distances_____</span>
+        <div id="distance-graph-cnv"  class="fake-canvas fill"></div>
+      </div>
+    </div>
+    <div id="overlay"></div>
+    </div>
     <script src="bundle.js"></script>
-  </body>
+  </body> 
 </html>
